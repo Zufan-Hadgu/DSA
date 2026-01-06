@@ -9,6 +9,9 @@ class Solution:
         queue = deque([root])
         level = 1
         level_dict = []
+        max_sum = float("-inf")
+        output = [max_sum,0]
+        output_level = 0
         while queue:
             each_level = 0
             for i in range (len(queue)):
@@ -17,16 +20,15 @@ class Solution:
                 if node.right:
                     queue.append(node.right)
                 if node.left:
-                    queue.append(node.left)
-            level_dict.append([level,each_level])
+                    queue.append(node.left)         
+            if max_sum < each_level:
+                max_sum = each_level
+                output_level = level
+            
+            output = [max_sum,output_level]
             level += 1
-        sorted_matrix = sorted(level_dict,key=lambda row:row[1])
-        n = len(sorted_matrix)
-        max_val = sorted_matrix[n-1][1]
-        for level,summed in level_dict:
-            if summed == max_val:
-                return level
-
+        return output[1]
+        
 
       
 
