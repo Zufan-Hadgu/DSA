@@ -1,16 +1,14 @@
-class Solution(object):
-    def maxIceCream(self, costs, coins):
-        """
-        :type costs: List[int]
-        :type coins: int
-        :rtype: int
-        """
-        costs.sort()
+class Solution:
+    def maxIceCream(self, costs: List[int], coins: int) -> int:
+        s = sorted(costs)
+        total = 0
         count = 0
-        summ = 0
-        for i in range (len(costs)):
-            summ = summ + costs[i]
-            if summ <= coins:
-                count += 1
+        for i in range(len(s)):
+            total += s[i]        
+            if total <= coins:
+                count += 1     
         return count
+            
+       
 
+        
