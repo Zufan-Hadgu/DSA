@@ -1,6 +1,6 @@
 class Solution:
     def totalNumbers(self, digits: List[int]) -> int:
-        seen = set()
+        visited = set()
 
         for i in range(len(digits)):
             if digits[i] == 0:
@@ -16,9 +16,9 @@ class Solution:
                         continue
                     
                     number = digits[i] * 100 + digits[j] * 10 + digits[k]
-                    seen.add(number)
+                    visited.add(number)
 
                    
-        return len(seen)
+        return len(visited)
                     
         
